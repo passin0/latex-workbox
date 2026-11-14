@@ -1,0 +1,23 @@
+\begin{figure}[H] % [H] 強制圖片固定在文字當前的段落位置
+    \centering
+    % 左邊：圖片區塊
+    \begin{minipage}[t]{0.48\textwidth}
+        \vspace{0pt} % 修正頂部對齊基準點
+        \centering
+        \includegraphics[width=\linewidth]{image.png} % 請換成您的圖片檔名
+        \captionof{figure}{這是圖片說明}
+        \label{fig:my_image}
+    \end{minipage}
+    \hfill % 自動填滿中間間距
+    % 右邊：文字區塊
+    \begin{minipage}[t]{0.48\textwidth}
+        \vspace{0pt} % 修正頂部對齊基準點
+        \textbf{說明標題} \\[0.5em]
+        這裡可以寫您需要的說明文字。例如：說明該電路圖的工作原理、邏輯閘的輸入輸出特性或是實驗步驟注意事項。
+        \begin{itemize}
+            \item 項目一：邏輯高位準 (Logic 1) 為 +5V。
+            \item 項目二：邏輯低位準 (Logic 0) 為 0V。
+        \end{itemize}
+    \end{minipage}
+\end{figure}
+
