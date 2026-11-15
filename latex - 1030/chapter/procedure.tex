@@ -1,0 +1,23 @@
+\section*{4. Procedure}
+\begin{enumerate}[leftmargin=*]
+    \item Open \textbf{ModelSim -- Intel FPGA Starter Edition} from the Start menu.
+    \item Create the main logic Verilog scripts.
+    \begin{itemize}
+        \item \textit{File $\rightarrow$ New $\rightarrow$ Source $\rightarrow$ Verilog}, then type the module \texttt{func\_and} using the primitive gate \texttt{and}.
+        \item Save it as \texttt{and.v} under the FPGA directory \texttt{C:/intelFPGA\_pro/17.0/data/}.
+        \item Repeat for \texttt{func\_xor} (\texttt{xor.v}) and \texttt{func\_nor} (\texttt{nor.v}).
+    \end{itemize}
+    \item Compile each script (\textit{Compile $\rightarrow$ Compile\ldots}, library \texttt{work}) and check the Transcript window for errors.
+    \item Create a test bench \texttt{test\_bench\_2var.v}.
+    \begin{itemize}
+        \item Include the three source files with \texttt{`include}.
+        \item Define module \texttt{tb\_func} and instantiate \texttt{func\_and}, \texttt{func\_xor} and \texttt{func\_nor} as \texttt{M1}, \texttt{M2} and \texttt{M3}.
+        \item Change the inputs every 250 ps through the combinations $AB = 00 \rightarrow 01 \rightarrow 10 \rightarrow 11$, and stop the simulation at 2000 ps.
+    \end{itemize}
+    \item Compile the test bench. In the Library window, expand \texttt{work}, right-click \texttt{tb\_func} and select \textit{Simulate}.
+    \item In the \texttt{sim} window, right-click \texttt{tb\_func} and select \textit{Add Wave}.
+    \item Click \textit{Simulate $\rightarrow$ Run $\rightarrow$ Run -All} to generate the timing waveforms.
+    \item Click on the wave window to read the signal values at a given time, and compare the simulation results with the truth tables.
+\end{enumerate}
+
+\newpage

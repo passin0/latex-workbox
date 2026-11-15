@@ -1,0 +1,13 @@
+\section*{6. Problems and Discussion}
+% TODO: 補上自己實際遇到的問題與心得（以下是依截圖與講義可以確認的內容）
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Comparison with the truth tables.} For both Exp-5a and Exp-5b, the simulated outputs agree with the expected values for all 8 input combinations (Tables~\ref{tab:5a} and \ref{tab:5b}). Adding the internal wires (\texttt{w1}, \texttt{w2}) to the wave window also made it possible to check each intermediate stage, not only the final outputs.
+    \item \textbf{Test bench with 3 inputs.} Compared with the 2-input test bench of LAB-04, three registers are needed and there are $2^3 = 8$ combinations, applied every 250 ps from 0 to 2000 ps. In \texttt{tb.v} only the inputs that change are reassigned at each step, while \texttt{tb\_func.v} reassigns all three inputs every time, which is longer but easier to read and check.
+    \item \textbf{Gate-level vs.\ dataflow modeling.} Exp-5a describes the circuit structure gate by gate, so the code follows the schematic directly. Exp-5b describes the Boolean equation with \texttt{assign}, so no gate instances are needed and the code is closer to the mathematical expression.
+\end{itemize}
+
+\section*{Student Feedback (Lab-05)}
+In this lab, we picked up where we left off with Verilog to describe circuits. Compared to last time, we had to deal with a lot more gates and model the circuits using both gate-level and dataflow styles. Because we needed to cover way more input combinations in the testbench, we added extra time intervals while keeping our input assignments concise.
+
+This lab really highlighted the massive speed difference between running simulations and wiring everything up by hand. Plus, we found that dataflow modeling is super efficient for describing complex combinational circuits—it actually feels really close to the concepts we learned in our Digital Systems Design class last semester.

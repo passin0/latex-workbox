@@ -1,0 +1,17 @@
+\section*{4. Procedure}
+\begin{enumerate}[leftmargin=*]
+    \item Open \textbf{ModelSim -- Intel FPGA Starter Edition}.
+    \item \textbf{Exp-5a:} Write the module \texttt{Simple\_Circuit} with gate-level modeling (\texttt{and G1}, \texttt{not G2}, \texttt{or G3}, internal wire \texttt{w1}) and save it as \texttt{5a.v} under \texttt{C:/intelFPGA\_pro/17.0/data/}.
+    \item Write a 3-input test bench \texttt{tb.v} (module \texttt{tb}).
+    \begin{itemize}
+        \item Include \texttt{5a.v} and instantiate \texttt{Simple\_Circuit} as \texttt{M1}.
+        \item Initialize $A=B=C=0$ and change the inputs every 250 ps so that all 8 combinations are applied; stop the simulation at 2000 ps.
+    \end{itemize}
+    \item \textbf{Exp-5b:} Write the module \texttt{top\_module} with dataflow modeling (\texttt{assign}) for $F = (A \cdot B) \oplus (B \downarrow C)$ and save it as \texttt{top\_module.v}.
+    \item Write the test bench \texttt{tb\_func.v} (module \texttt{tb\_func}) in the same way, applying all 8 input combinations every 250 ps.
+    \item Compile the modules and the test benches (\textit{Compile $\rightarrow$ Compile\ldots}) and check the Transcript window for errors.
+    \item In the Library window, right-click the test bench module and select \textit{Simulate}; then right-click the instance \texttt{M1} and select \textit{Add Wave} to include the internal wires.
+    \item Click \textit{Simulate $\rightarrow$ Run $\rightarrow$ Run -All}, read the signal values from the wave window, and compare them with the truth tables.
+\end{enumerate}
+
+\newpage

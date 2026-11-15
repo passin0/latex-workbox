@@ -1,0 +1,17 @@
+\section*{6. Problems and Discussion}
+% TODO: 補上自己實際遇到的問題與心得（以下是依截圖與講義可以確認的內容）
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Comparison with the truth tables.} The waveforms of \texttt{ANDF}, \texttt{XORF} and \texttt{NORF} agree with the truth tables for all four input combinations (Tables~\ref{tab:and}--\ref{tab:wave}). Unlike the previous hardware labs, the simulator only shows ideal logic levels (\texttt{St0} / \texttt{St1}, i.e.\ strong 0 / strong 1), so there is no measured voltage to compare.
+    \item \textbf{One test bench for several modules.} Instead of writing a separate test bench for each gate, the three modules were included with \texttt{`include} and instantiated in the same \texttt{tb\_func}. They share the same input stimulus, so all outputs can be compared on a single waveform.
+    \item \textbf{Initial input combination.} The registers are initialized with \texttt{reg A = 1'b0; reg B = 1'b0;}, so the combination $AB=00$ is applied from 0 to 250 ps without an extra statement in the \texttt{initial} block. The last combination $AB=11$ is held from 750 ps until the simulation stops at 2000 ps.
+    \item \textbf{File location.} The \texttt{`include} statements use absolute paths under \texttt{C:/intelFPGA\_pro/17.0/data/}, so the source files must be saved in that directory as the handout requires; otherwise the test bench fails to compile.
+\end{itemize}
+
+\section*{Student Feedback (Lab-04)}
+
+This lab was our first time working with Verilog and the simulation software. At first, we spent a lot of time just figuring out how to navigate the tool, and we ran into a few hiccups along the way. For example, we kept getting error messages when compiling. After the TA walked us through it, we realized it was actually a file path issue—definitely a good lesson to pay attention to where we save our files when using this software.
+
+On top of that, we learned how to write a testbench to verify the logic gates and compare the simulated waveforms against the truth table, which really helped us wrap our heads around digital logic design. Once we finished the basic requirements, we wanted to try combining the three separate simulation files into a single test script. That way, it’s much easier to check all three gate outputs at once and see if they’re working properly side by side. After looking up some resources online, we put together two similar versions of the test as our first shot at exploring Verilog on our own.
+
+Overall, this lab gave us a solid starting point with Verilog and the simulation tool, and the TA’s hands-on guidance made the whole process super clear and easy to follow.

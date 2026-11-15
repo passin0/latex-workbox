@@ -1,0 +1,45 @@
+\section*{2. Theory}
+
+\subsection*{Hardware Description Language (HDL)}
+A hardware description language is a computer-based language that describes the hardware of digital systems in textual form. It resembles an ordinary programming language such as C, but it is specifically oriented to describing hardware structures and the behavior of logic circuits. The two HDLs standardized by the IEEE are VHDL and Verilog; this lab uses Verilog.
+
+\subsection*{Modeling Styles in Verilog}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Gate-level modeling} describes a circuit by specifying its gates and how they are connected to each other.
+    \item \textbf{Dataflow modeling} describes the Boolean equations of combinational logic with continuous assignments using the keyword \texttt{assign} (e.g.\ \texttt{assign F = A \& B;}).
+    \item \textbf{Behavioral modeling} uses procedural assignments with the keyword \texttt{always}, and is mostly used to describe sequential circuits.
+\end{itemize}
+The modules in this lab use gate-level modeling with the built-in primitive gates of Verilog (\texttt{and}, \texttt{nand}, \texttt{or}, \texttt{nor}, \texttt{not}, \texttt{buf}, \texttt{xor}, \texttt{xnor}).
+
+\subsection*{Structure of a Module}
+\begin{itemize}[leftmargin=*]
+    \item \texttt{module} / \texttt{endmodule}: start and end of the module declaration. The name after \texttt{module} is an identifier, which must begin with a letter or an underscore.
+    \item \texttt{input} / \texttt{output}: declare which ports are inputs and which are outputs.
+    \item \texttt{wire}: an internal connection between gates or modules.
+    \item Gate instance: \texttt{and g1(F, A, B);} --- the output is listed first, followed by the inputs; \texttt{g1} is an optional instance name.
+\end{itemize}
+
+\subsection*{Test Bench}
+To simulate a circuit, inputs must be applied so that the simulator can generate an output response. An HDL description that provides this stimulus is called a \textit{test bench}. In its simplest form, it is a module containing a signal generator and an instantiation of the model to be verified. Useful syntax:
+\begin{itemize}[leftmargin=*]
+    \item \texttt{reg A = 1'b0;} --- a register holding a 1-bit binary value of 0.
+    \item \texttt{\#250} --- wait 250 time units (ps in this simulation) before executing the next statement.
+    \item \texttt{\#2000 \$stop;} --- stop the simulation after 2000 time units.
+\end{itemize}
+
+\subsection*{Truth Tables}
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{c c | c c c}
+\toprule
+\textbf{A} & \textbf{B} & \textbf{AND} ($A \cdot B$) & \textbf{XOR} ($A \oplus B$) & \textbf{NOR} ($\overline{A + B}$) \\
+\midrule
+0 & 0 & 0 & 0 & 1 \\
+0 & 1 & 0 & 1 & 0 \\
+1 & 0 & 0 & 1 & 0 \\
+1 & 1 & 1 & 0 & 0 \\
+\bottomrule
+\end{tabular}
+\captionof{table}{Truth tables of AND, XOR and NOR gates}
+\end{table}

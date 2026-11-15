@@ -1,0 +1,33 @@
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage{report}
+\usepackage{tabularx}
+\usepackage{algorithm}      % 也會帶入 float 套件，讓 [H] 可用
+\usepackage{algpseudocode}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{pdfpages}
+\usepackage{caption}        % 提供 \captionof
+\usepackage{amssymb}
+\usepackage{listings}
+\usepackage[most]{tcolorbox}
+\usepackage[table]{xcolor}
+\usepackage{multirow}
+\usepackage{booktabs}
+
+\title{\textbf{U2296 Digital System Laboratory}\\ \Large LAB-05: Combinational Circuits (Verilog)}
+\author{.}
+\date{}
+
+\begin{document}
+\maketitle
+
+% 用 \input 而非 \include：\include 會在每章前後強制換頁，報告會變成很多半空的頁面
+\input{chapter/goal}
+\input{chapter/theory}
+\input{chapter/instruments}
+\input{chapter/procedure}
+\input{chapter/results}
+\input{chapter/problems}
+
+\end{document}
