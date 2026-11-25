@@ -1,0 +1,13 @@
+\section*{6. Problems and Discussion}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Matching the pins one by one.} The pin order of the CD4511 outputs does not follow the segment order of the display: for example, decoder output $a$ is pin 13 but segment $a$ of the display is pin 7, and the display's pins are not in $a \sim g$ order either. To avoid wrong connections, we repeatedly compared the pin diagrams of the IC and the 7-segment display (Figures~\ref{fig:cd4511} and \ref{fig:7seg}) and connected the wires one at a time, checking each segment before moving on to the next.
+    \item \textbf{Carry-out of the 4-bit adder.} In Cases 2--4 the sum is larger than $15$, the maximum value of 4 bits, so the result needs a fifth bit, which appears at $C_O$. For example, in Case 2, $1010 + 0101 + 1 = 10000_2 = 16$: all sum bits are 0 and only $C_O = 1$.
+    \item \textbf{Parallel carry.} In a ripple carry adder the carry has to pass through every stage, so the delay grows with the number of bits. The CD4008 generates $C_O$ with a high-speed parallel carry circuit, so $C_O$ does not wait for the carry to ripple through all four stages.
+    \item \textbf{Control pins of the CD4511.} $\overline{LT}$ and $\overline{BI}$ are active low and $LE$ is active high, so they must be connected to $+6\text{V}$, $+6\text{V}$ and ground respectively. If $\overline{LT} = 0$ all segments light (lamp test), and if $\overline{BI} = 0$ the display is blank, whatever the BCD input is.
+    \item \textbf{Series resistors and supply voltage.} Each segment is an LED, so without the $330\,\Omega$ resistors the segment current would be limited only by the decoder output, which may burn the display or the IC. For the same reason $V_{DD}$ is kept at $+6\text{V}$.
+\end{itemize}
+
+\section*{Student Feedback (Lab-06)}
+In this lab, we learned how to use a 4-bit adder and a BCD-to-7-segment display, and got a better handle on how they work and where they're used. During the experiment, we started by testing the 7-segment display we just learned about. Once we made sure it was showing the right numbers, we moved on to testing the adder. The most time-consuming part was double-checking the pinouts one by one while wiring, plus fixing a minor issue with some loose connections.
+
+Going back to the adder part really connected the dots with what we learned earlier in Digital System Design. Actually wiring up the IC to test the full adder principles gave us a real `aha!' moment. Overall, through all the step-by-step practice this semester, we've gotten way more comfortable with the hands-on work—we're much faster at wiring, testing, and troubleshooting now. Next up, we're going to apply these skills to design our own final project, which we're super excited about!

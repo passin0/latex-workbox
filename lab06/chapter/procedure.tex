@@ -1,0 +1,26 @@
+\section*{4. Procedure}
+\subsection*{Exp-6a: 4-bit Adder}
+\begin{enumerate}[leftmargin=*]
+    \item Set the DC power supply to $+6\text{V}$ and turn the output off before wiring.
+    \item Place the CD4008 on the breadboard; connect pin 16 ($V_{DD}$) to $+6\text{V}$ and pin 8 ($V_{SS}$) to ground.
+    \item Connect an LED to each output $S_1$ (pin 10), $S_2$ (pin 11), $S_3$ (pin 12), $S_4$ (pin 13) and $C_O$ (pin 14) to indicate the output level.
+    \item Set the inputs $A_4 \sim A_1$, $B_4 \sim B_1$ and $C_1$ by connecting each pin to $+6\text{V}$ (logic 1) or ground (logic 0), and record $S_4 \sim S_1$ and $C_O$ for the four cases:
+    \begin{itemize}
+        \item Case 1: $0001 + 0101$, $C_1 = 0$
+        \item Case 2: $1010 + 0101$, $C_1 = 1$
+        \item Case 3: $1100 + 1101$, $C_1 = 0$
+        \item Case 4: $1111 + 1110$, $C_1 = 1$
+    \end{itemize}
+    \item Compare the measured outputs with the calculated sums.
+\end{enumerate}
+
+\subsection*{Exp-6b: BCD to 7-Segment Display}
+\begin{enumerate}[leftmargin=*]
+    \item Place the CD4511 and the common-cathode 7-segment display on the breadboard; connect CD4511 pin 16 ($V_{DD}$) to $+6\text{V}$ and pin 8 ($V_{SS}$) to ground.
+    \item Set the control pins for normal operation: $\overline{LT}$ (pin 3) and $\overline{BI}$ (pin 4) to $+6\text{V}$, $LE$ (pin 5) to ground.
+    \item Connect the decoder outputs $a \sim g$ (pins 13, 12, 11, 10, 9, 15, 14) to the display segments $a \sim g$ (display pins 7, 6, 4, 2, 1, 9, 10), each through a $330\,\Omega$ series resistor.
+    \item Connect the common cathode of the display (pin 3 or 8) to ground.
+    \item Apply the BCD inputs $D$ (pin 6), $C$ (pin 2), $B$ (pin 1), $A$ (pin 7) from $0000$ to $1001$, check that the digits 0 to 9 are displayed, and take a picture of each digit.
+\end{enumerate}
+
+\newpage
